@@ -10,8 +10,7 @@
     'header header header' 50px
     'left-menu main right-menu' 1fr
     'footer footer footer' 50px /
-    auto minmax(200px, 1fr) 1fr;
-  gap: 15px;
+    200px 1fr 200px;
 }
 
 .header {
@@ -24,16 +23,35 @@
   background-color: #ff000070;
 }
 
+.menu-item {
+  border: black solid 2px;
+  padding: 10px;
+  margin: 2px;
+  text-align: center;
+  /* another way to center the text vertically */
+  display: grid;
+  align-content: center;
+}
+
 .main {
   grid-area: main;
   background-color: #00ff0070;
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 230px;
+}
+
+.main .menu-item,
+.right-menu .menu-item {
+  height: 200px;
 }
 
 .right-menu {
   grid-area: right-menu;
   background-color: #ff00ff70;
+  grid-template-columns: 1fr;
+  display: grid;
+  gap: 10px;
 }
 
 .footer {
